@@ -10586,7 +10586,7 @@ task.spawn(function()
 	end
 end)
 
-warningNotification("Ophiuchus", "Welcome to bedwars OphiuchusOwner | Deteted user: "..lplr.DisplayName..".", 10)
+warningNotification("Ophiuchus", "Welcome to bedwars Ophiuchus User | Deteted user: "..lplr.DisplayName..".", 10)
 
 runFunction(function()
     local Disabler = {Enabled = false}
@@ -10941,49 +10941,6 @@ runFunction(function()
 end)
 
 runFunction(function()
-    disabler = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
-        Name = "OphiuchusDisablerV2",
-        Function = function(callback)
-            if callback then
-                local ReplicatedStorage = game:GetService("ReplicatedStorage")
-                local Players = game:GetService("Players")
-                local RunService = game:GetService("RunService")
-                local ScytheDash = ReplicatedStorage:WaitForChild("rbxts_include"):WaitForChild("node_modules")["@rbxts"].net.out._NetManaged.ScytheDash
-
-                local function onRenderStepped()
-                    local localPlayer = Players.LocalPlayer
-                    if not localPlayer then
-                        return
-                    end
-                    local character = localPlayer.Character
-                    if not character then
-                        return
-                    end
-                    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
-                    if humanoidRootPart then
-                        local lookVector = humanoidRootPart.CFrame.LookVector * 10000
-                        ScytheDash:FireServer({
-                            direction = lookVector
-                        })
-                    end
-                end
-                local lastHeartbeat = tick()
-                local function onHeartbeat()
-                    local currentTime = tick()
-                    local elapsedSeconds = currentTime - lastHeartbeat
-                    if elapsedSeconds > 999 then
-                        lastHeartbeat = currentTime
-                    end
-                end
-
-                RunService.RenderStepped:Connect(onRenderStepped)
-                RunService.Heartbeat:Connect(onHeartbeat)
-            end
-        end
-    })
-end)
-
-runFunction(function()
 	InfiniteJump = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
 		Name = "InfiniteJump",
 		Function = function(callback)
@@ -11001,41 +10958,6 @@ runFunction(function()
 			humanoid:ChangeState("Jumping")
 		end
 	end)         
-end)
-
-runFunction(function()
-    local FPSBoostLol = {Enabled = false}
-    FPSBoostLol = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
-        Name = "FPSBoostLol",
-        Function = function(callback)
-            if callback then
-                _G.Settings = {
-    Players = {
-        ["Ignore Me"] = true, -- Ignore your Character
-        ["Ignore Others"] = true-- Ignore other Characters
-    },
-    Meshes = {
-        Destroy = false, -- Destroy Meshes
-        LowDetail = true -- Low detail meshes (NOT SURE IT DOES ANYTHING)
-    },
-    Images = {
-        Invisible = true, -- Invisible Images
-        LowDetail = false, -- Low detail images (NOT SURE IT DOES ANYTHING)
-        Destroy = false, -- Destroy Images
-    },
-    ["No Particles"] = true, -- Disables all ParticleEmitter, Trail, Smoke, Fire and Sparkles
-    ["No Camera Effects"] = true, -- Disables all PostEffect's (Camera/Lighting Effects)
-    ["No Explosions"] = true, -- Makes Explosion's invisible
-    ["No Clothes"] = true, -- Removes Clothing from the game
-    ["Low Water Graphics"] = true, -- Removes Water Quality
-    ["No Shadows"] = true, -- Remove Shadows
-    ["Low Rendering"] = true, -- Lower Rendering
-    ["Low Quality Parts"] = true -- Lower quality parts
-}
-loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()
-            end
-        end
-    })
 end)
 
 runFunction(function()
