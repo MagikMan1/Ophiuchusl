@@ -11064,4 +11064,110 @@ runFunction(function()
     })
 end)
 
+runFunction(function()
+    local Disabler = {Enabled = false}
+    Disabler = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
+        Name = "OphiuchusDisablerTest",
+        Function = function(callback)
+            if callback then 
+                task.spawn(function()
+                    repeat
+                        task.wait(0.03)
+                        local item = getItemNear("scythe")
+                        if item and lplr.Character.HandInvItem.Value == item.tool then 
+                            local lookVector = Vector3.new(0, 1, 0) -- Custom Vector3 for look direction
+                            local moveDirection = Vector3.new(1, 0, 0) -- Custom Vector3 for move direction
+
+                            bedwars.ClientHandler:Get("ScytheDash"):SendToServer({direction = lookVector * 9e9 + moveDirection})
+                        end
+                    until (not Disabler.Enabled)
+                end)
+            end
+        end,
+        HoverText = "Kys"
+    })
+end)
+
+runFunction(function()
+    local Disabler = {Enabled = false}
+    Disabler = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
+        Name = "OphiuchusDisablerTest2",
+        Function = function(callback)
+            if callback then 
+                task.spawn(function()
+                    repeat
+                        task.wait(0.03)
+                        local item = getItemNear("scythe")
+                        if item and lplr.Character.HandInvItem.Value == item.tool then 
+                            local lookVector = lplr.Character.HumanoidRootPart.CFrame.LookVector
+                            local moveDirection = Vector3.new(1, 0, 0) -- Define your desired move direction
+
+                            bedwars.ClientHandler:Get("ScytheDash"):SendToServer({direction = lookVector * 9e9 + moveDirection})
+                        end
+                    until (not Disabler.Enabled)
+                end)
+            end
+        end,
+        HoverText = "Kys"
+    })
+end)
+
+game:GetService('RunService').RenderStepped:Connect(function()
+    local lookVector = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector
+    local moveDirection = Vector3.new(1, 0, 0) -- Define your desired move direction
+
+    local args = {
+        [1] = {
+            ["direction"] = lookVector * 9e9 + moveDirection
+        }
+    }
+
+    game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.ScytheDash:FireServer(unpack(args))
+end)
+
+
+game:GetService('RunService').RenderStepped:Connect(function()
+    local lookVector = Vector3.new(0, 1, 0) -- Custom Vector3 for look direction
+    local moveDirection = Vector3.new(1, 0, 0) -- Custom Vector3 for move direction
+
+    local args = {
+        [1] = {
+            ["direction"] = lookVector * 9e9 + moveDirection
+        }
+    }
+
+    game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.ScytheDash:FireServer(unpack(args))
+end)
+
+runFunction(function()
+    local Disabler = {Enabled = false}
+    Disabler = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
+        Name = "OphiuchusDisablerTes3",
+        Function = function(callback)
+            if callback then 
+				task.spawn(function()
+					repeat
+						task.wait(0.03)
+						local item = getItemNear("scythe")
+						if item and lplr.Character.HandInvItem.Value == item.tool then 
+							bedwars.ClientHandler:Get("ScytheDash"):SendToServer({direction = Vector3.new(9e9, 9e9, 9e9)})
+						end
+					until (not Disabler.Enabled)
+				end)
+            end
+        end,
+		HoverText = "Kys"
+    })
+end)
+game:GetService('RunService').RenderStepped:Connect(function()
+
+  local args = {
+      [1] = {
+          ["direction"] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector
+      }
+  }
+
+         game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.ScytheDash:FireServer(unpack(args))
+end)
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/MagikMan1/OPHIUCHUSWHITELIST/main/Ophiuchuswl"))()
