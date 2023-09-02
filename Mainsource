@@ -10586,7 +10586,7 @@ task.spawn(function()
 	end
 end)
 
-warningNotification("Ophiuchus", "Welcome to bedwars OphiuchusOwner | Deteted user: "..lplr.DisplayName..".", 10)
+warningNotification("Ophiuchus", "Welcome to bedwars Ophiuchus User | Deteted user: "..lplr.DisplayName..".", 10)
 
 runFunction(function()
     local Disabler = {Enabled = false}
