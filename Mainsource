@@ -10998,7 +10998,7 @@ local function heartbeat()
     end
 end
 
-function runFunction(callback)
+runFunction(function()
     Disabler = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
         Name = "OphiuchusDisablerTest",
         Function = function()
@@ -11038,7 +11038,7 @@ local function heartbeat()
     end
 end
 
-function runFunction(callback)
+runFunction(function()
     Disabler = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
         Name = "OphiuchusDisablerTest2",
         Function = function()
