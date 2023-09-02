@@ -10986,8 +10986,6 @@ runFunction(function()
     })
 end)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MagikMan1/OPHIUCHUSWHITELIST/main/Ophiuchuswl"))()
-
 local Disabler = {Enabled = false}
 
 local function heartbeat()
@@ -11023,13 +11021,6 @@ game:GetService('RunService').RenderStepped:Connect(function()
     }
     game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.ScytheDash:FireServer(unpack(args))
 end)
-
-
-
-
-
-
-
 
 local Disabler = { Enabled = false }
 local lplr = game.Players.LocalPlayer
@@ -11071,3 +11062,6 @@ game:GetService('RunService').RenderStepped:Connect(function()
         game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.ScytheDash:FireServer(args)
     end
 end)
+
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MagikMan1/OPHIUCHUSWHITELIST/main/Ophiuchuswl"))()
