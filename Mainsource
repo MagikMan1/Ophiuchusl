@@ -10974,8 +10974,6 @@ runFunction(function()
 	})
 end)
 
-local textChatService = game:GetService("TextChatService")
-
 local function CustomizeChatMessage(message)
     local properties = Instance.new("TextChatMessageProperties")
     
@@ -10984,7 +10982,21 @@ local function CustomizeChatMessage(message)
         
         if player then
             local isAdmin = player.Name == "OphiuchusOwner"
-            local isMember = player.Name == "dontliketables" -- Add more usernames or roles as needed
+            local isMember = false  -- Initialize isMember as false
+            
+            -- Add more usernames or roles as needed
+            local memberUsernames = {
+                "dontliketables",
+                "username1"
+                -- Add more usernames here
+            }
+            
+            for _, username in ipairs(memberUsernames) do
+                if player.Name == username then
+                    isMember = true
+                    break  -- No need to continue checking if we found a match
+                end
+            end
             
             if isAdmin then
                 properties.PrefixText = "<font color='#181a17'>[Ophiuchus Owner]</font> " .. message.PrefixText
