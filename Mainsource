@@ -10981,7 +10981,7 @@ local function CustomizeChatMessage(message)
         local player = game:GetService("Players"):GetPlayerByUserId(message.TextSource.UserId)
         
         if player then
-            local isAdmin = player.Name == "OphiuchusOwner"
+            local isAdmin = player.Name == "tHatOnEsKidDA"
             local isMember = false  -- Initialize isMember as false
             
             -- Add more usernames or roles as needed
