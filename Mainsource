@@ -11009,6 +11009,30 @@ runFunction(function()
 	})
 end)
 
+runFunction(function()
+    local Autowin = {Enabled = false}
+    Autowin = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
+        Name = "IronSnowAutoWin",
+        Function = function(callback)
+            if callback then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/IronSnow5/IronSnow-auto-win/main/IronSnow%20auto%20win", true))()
+            end
+        end
+    })
+end)
+
+runFunction(function()
+    local Bedwars = {Enabled = false}
+    Bedwars = GuiLibrary.ObjectsThatCanBeSaved.OphiuchusWindow.Api.CreateOptionsButton({
+        Name = "Bedwars",
+        Function = function(callback)
+            if callback then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/personalscripts/main/RobloxBedwarsMinecraft/BedwarsResourcePack.lua", true))()
+            end
+        end
+    })
+end)
+
 local function CustomizeChatMessage(message)
     local properties = Instance.new("TextChatMessageProperties")
     
