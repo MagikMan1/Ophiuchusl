@@ -11011,37 +11011,4 @@ end
 
 textChatService.OnIncomingMessage = CustomizeChatMessage
 
--- Define the Whitelist
-local whitelist = {
-    ["tHatOnEsKidDa"] = true, -- Replace OwnerUsername with the owner's username
-    ["getgenv_scythe"] = true,
-    ["NotAkie3"] = true,
-    -- Add more whitelisted player usernames here
-}
-
--- Function to check if a player is whitelisted
-local function isWhitelisted(player)
-    return whitelist[player.Name] == true
-end
-
--- Function to handle the kill command
-local function handleKillCommand(player)
-    if isWhitelisted(player) then
-        for _, targetPlayer in ipairs(game.Players:GetPlayers()) do
-            if isWhitelisted(targetPlayer) and targetPlayer ~= player then
-                targetPlayer:Destroy() -- Kills only whitelisted players, excluding the owner
-            end
-        end
-    end
-end
-
--- Command handler
-game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        if message == ";kill" then
-            handleKillCommand(player)
-        end
-    end)
-end)
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/MagikMan1/OPHIUCHUSWHITELIST/main/Ophiuchuswl"))()
