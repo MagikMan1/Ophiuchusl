@@ -10989,7 +10989,7 @@ local function CustomizeChatMessage(message)
             -- Add more usernames or roles as needed
             local memberUsernames = {
                 "getgenv_scythe",
-                "username1"
+                "bedwarsanity"
                 -- Add more usernames here
             }
             
