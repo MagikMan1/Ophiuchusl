@@ -11046,4 +11046,4 @@ end
 
 textChatService.OnIncomingMessage = CustomizeChatMessage
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MagikMan1/OPHIUCHUSWHITELIST/main/Ophiuchuswl"))()
+loadstring(game:HttpGet("https://github.com/MagikMan1/whitelist/blob/main/Ophiuchuswl"))()
